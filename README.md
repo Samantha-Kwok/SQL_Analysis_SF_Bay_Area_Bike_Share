@@ -8,7 +8,7 @@
 ###### This project is to demonstrate proficiency in manupuating, aggregating and querying data from database files using SQL and the ablities to analytes these values in context.  
 
 ## Database Schema:
-###### This databases is a trasnferomed version of Bay Area Bike Share Open data and is available to download from [Kaggle-SF Bay Areas Bike Share](https://www.kaggle.com/benhamner/sf-bay-area-bike-share). There are 4 tables (i.e.station, status, trip, weather) inside the database and I added one table (i.e. SFstation) for the purpose of this project. For more information on the structure of each table, please scoll down to the bottom to take a look at **Database Schema-Appendix 1**.
+###### This databases is a trasnferomed version of Bay Area Bike Share Open data and is available to download from [Kaggle-SF Bay Areas Bike Share](https://www.kaggle.com/benhamner/sf-bay-area-bike-share). There are 4 tables (i.e.station, status, trip, weather) inside the database and I added one table (i.e. SFstation) for the purpose of this project. For more information on the structure of each table, please scoll down to the bottom to take a look at ** Database Schema-Appendix 1 **.
 
 
 ## Repositary Outline:
