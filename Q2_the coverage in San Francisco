@@ -1,1 +1,7 @@
-xxxx
+Q2.1 How many stations whose number of docks installed is above and below the average are there in San Francisco?
+
+Metrics
+the number of stations with the number of docks equal or greater than the average in San Francisco
+the number of stations with the number of docks below the average in San Francisco 
+
+
