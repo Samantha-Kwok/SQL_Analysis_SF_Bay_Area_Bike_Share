@@ -1,1 +1,19 @@
-lkjlkj
+Q4 Which station is busiest in San Francisco?
+
+Metric
+-the station with the most amount of trips in San Francisco
+
+SQL
+WITH SF_trip AS (
+SELECT *
+FROM SFstation
+JOIN trip
+   ON SFstation.SF_station_id = trip.start_station_id OR SFstation.SF_station_id = trip.end_station_id )
+
+SELECT SF_station_name AS 'station',
+       COUNT(id) AS 'trip'
+FROM SF_trip
+WHERE  start_station_name in (SELECT SF_station_name FROM SFstation)
+GROUP BY SF_station_name
+ORDER BY COUNT(id) DESC 
+LIMIT 10
