@@ -3,10 +3,9 @@ Q1 How is the coverage of bike-share facilities in the Bay Area?
 Metrics 
 -The total number of bike-share stations per city in the Bay Area
 -The total number of docks installed per city in the Bay Area
--The average number of doicks installed per station by city
+-The average number of docks installed per station by city
 
 SQL 
-
 SELECT city, 
        COUNT(name) AS 'bike-share station', 
 	     SUM(dock_count) AS 'dock installed',
