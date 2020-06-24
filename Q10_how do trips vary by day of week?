@@ -1,0 +1,53 @@
+Q10_how do trips vary by day of week?
+
+Metric
+-the number of trips by day
+
+SQL
+WITH SF_trip AS(
+SELECT DATE(CASE
+                -- m/d/yyyy
+               WHEN ((INSTR(start_date, ' ')-1) = 8 AND substr(start_date,2,1) = '/') 
+               THEN substr(start_date,5,4)||'-0'||substr(start_date,1,1)||'-0'||substr(start_date,3,1)
+               -- m/dd/yyyy
+               WHEN ((INSTR(start_date, ' ')-1) = 9 AND substr(start_date,2,1) = '/') 
+               THEN substr(start_date,6,4)||'-0'||substr(start_date,1,1)||'-'||substr(start_date,3,2)
+               -- mm/d/yyyy
+               WHEN ((INSTR(start_date, ' ')-1) = 9 AND substr(start_date,3,1) = '/') 
+               THEN substr(start_date,6,4)||'-0'||substr(start_date,1,2)||'-'||substr(start_date,4,1)
+               -- mm/dd/yyyy
+               WHEN ((INSTR(start_date, ' ')-1) = 10 AND substr(start_date,3,1) = '/') 
+               THEN substr(start_date,7,4)||'-'||substr(start_date,1,2)||'-'||substr(start_date,4,2)
+               ELSE start_date
+               END)AS trip_date,
+			   id,
+			   start_station_name,
+			   duration,
+			   end_station_name
+FROM SFstation
+JOIN trip
+   ON SFstation.SF_station_id = trip.start_station_id OR SFstation.SF_station_id = trip.end_station_id )
+
+SELECT (CASE 
+           WHEN trip_date = (DATE(trip_date, 'weekday 1'))
+           THEN '1 - Monday'
+           WHEN trip_date = (DATE(trip_date, 'weekday 2'))
+           THEN '2 - Tuesday'
+           WHEN trip_date = (DATE(trip_date, 'weekday 3'))
+           THEN '3 - Wednesday'
+           WHEN trip_date = (DATE(trip_date, 'weekday 4'))
+           THEN '4 - Thursday'
+           WHEN trip_date = (DATE(trip_date, 'weekday 5'))
+           THEN '5 - Friday'
+           WHEN trip_date = (DATE(trip_date, 'weekday 6'))
+           THEN '6 - Saturday'
+           ELSE '7 - Sunday'
+           END )AS weekday,
+		   COUNT(id)as 'record'
+FROM SF_trip
+GROUP BY weekday
+
+
+
+
+
