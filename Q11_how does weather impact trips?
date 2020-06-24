@@ -1,0 +1,103 @@
+Q.11.1 How does temperature impact trips?
+
+SQL
+WITH SF_trip AS(
+SELECT (CASE
+		-- m/d/yyyy
+	   WHEN ((INSTR(start_date, ' ')-1) = 8 AND substr(start_date,2,1) = '/') 
+	   THEN substr(start_date,1,8)
+	   -- m/dd/yyyy
+	   WHEN ((INSTR(start_date, ' ')-1) = 9 AND substr(start_date,2,1) = '/') 
+	   THEN substr(start_date,1,9)
+	   -- mm/d/yyyy
+	   WHEN ((INSTR(start_date, ' ')-1) = 9 AND substr(start_date,3,1) = '/') 
+	   THEN substr(start_date,1,9)
+	   -- mm/dd/yyyy
+	   WHEN ((INSTR(start_date, ' ')-1) = 10 AND substr(start_date,3,1) = '/') 
+	   THEN substr(start_date,1,10)
+	   ELSE start_date
+	   END)AS trip_date,
+	   id
+FROM trip
+JOIN SFstation
+   ON SFstation.SF_station_id = trip.start_station_id OR SFstation.SF_station_id = trip.end_station_id )
+
+SELECT avg(id),
+       mean_temperature_f
+FROM SF_trip
+JOIN weather
+ ON SF_trip.trip_date=weather.date
+ GROUP BY  mean_temperature_f
+ 
+-------------------------------------------------------------------------------------------------------------------
+Q.11.2 How does wind speed impact trips?
+
+SQL
+WITH SF_trip AS(
+SELECT (CASE
+		-- m/d/yyyy
+	   WHEN ((INSTR(start_date, ' ')-1) = 8 AND substr(start_date,2,1) = '/') 
+	   THEN substr(start_date,1,8)
+	   -- m/dd/yyyy
+	   WHEN ((INSTR(start_date, ' ')-1) = 9 AND substr(start_date,2,1) = '/') 
+	   THEN substr(start_date,1,9)
+	   -- mm/d/yyyy
+	   WHEN ((INSTR(start_date, ' ')-1) = 9 AND substr(start_date,3,1) = '/') 
+	   THEN substr(start_date,1,9)
+	   -- mm/dd/yyyy
+	   WHEN ((INSTR(start_date, ' ')-1) = 10 AND substr(start_date,3,1) = '/') 
+	   THEN substr(start_date,1,10)
+	   ELSE start_date
+	   END)AS trip_date,
+	   id,
+	   start_station_name,
+	   duration,
+	   end_station_name
+FROM trip
+JOIN SFstation
+   ON SFstation.SF_station_id = trip.start_station_id OR SFstation.SF_station_id = trip.end_station_id )
+
+SELECT avg(id),
+       mean_wind_speed_mph
+FROM SF_trip
+JOIN weather
+ ON SF_trip.trip_date=weather.date
+ GROUP BY   mean_wind_speed_mph
+
+-----------------------------------------------------------------------------------------------------------
+Q.11.3 How does humidity impact trip?
+
+SQL
+WITH SF_trip AS(
+SELECT (CASE
+		-- m/d/yyyy
+	   WHEN ((INSTR(start_date, ' ')-1) = 8 AND substr(start_date,2,1) = '/') 
+	   THEN substr(start_date,1,8)
+	   -- m/dd/yyyy
+	   WHEN ((INSTR(start_date, ' ')-1) = 9 AND substr(start_date,2,1) = '/') 
+	   THEN substr(start_date,1,9)
+	   -- mm/d/yyyy
+	   WHEN ((INSTR(start_date, ' ')-1) = 9 AND substr(start_date,3,1) = '/') 
+	   THEN substr(start_date,1,9)
+	   -- mm/dd/yyyy
+	   WHEN ((INSTR(start_date, ' ')-1) = 10 AND substr(start_date,3,1) = '/') 
+	   THEN substr(start_date,1,10)
+	   ELSE start_date
+	   END)AS trip_date,
+	   id,
+	   start_station_name,
+	   duration,
+	   end_station_name
+FROM trip
+JOIN SFstation
+   ON SFstation.SF_station_id = trip.start_station_id OR SFstation.SF_station_id = trip.end_station_id )
+
+SELECT avg(id),
+       mean_humidity
+FROM SF_trip
+JOIN weather
+ ON SF_trip.trip_date=weather.date
+ GROUP BY  mean_humidity
+ 
+
+ 
