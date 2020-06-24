@@ -2,7 +2,6 @@ Q7 Which route is the longest and shortest?
 
 Metric
 -the rounte with the highest value in duration
--the route with the least value in duration
 
 SQL
 WITH SF_trip AS (
@@ -10,14 +9,16 @@ SELECT *
 FROM SFstation
 JOIN trip
    ON SFstation.SF_station_id = trip.start_station_id OR SFstation.SF_station_id = trip.end_station_id )
-  
-SELECT start_station_name, 'start station',
-       end_station_name As 'end station',      
-	     ROUND(duration/60) AS "duration of route in minute'
+
+SELECT start_station_name AS 'start station',
+       start_station_id AS 'start station id',
+	   start_dateAS 'start date',
+       end_station_name AS 'end station',   
+	   end_station_id AS 'end station id',  
+	   ennd_date AS 'end date',
+	   id AS 'trip id',
+	   ROUND(duration/60/60) AS 'duration of route in hour'	 
 FROM SF_trip 
 GROUP BY start_station_name, end_station_name
-WHERE    ROUND(duration/60)= ROUND(MAX(duration/60)) 
-      
-LIMIT 10   
-
-
+ORDER BY ROUND(duration/60) DESC 
+LIMIT 100  
