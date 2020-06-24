@@ -4,6 +4,8 @@ Metrics
 -The total number of bike-share stations per city in the Bay Area
 -The total number of docks installed per city in the Bay Area
 -The average number of docks installed per station by city
+-the least amount of docks installed in one station by city
+-the most of amount of docks installed in one station by city
 
 SQL 
 SELECT city, 
