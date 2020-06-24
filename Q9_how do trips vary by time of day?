@@ -1,1 +1,43 @@
-lkjjlj
+Q9 How bike trips vary by time of day?
+
+Metric
+-the number of trips by hour
+
+SQL
+WITH SF_trip AS(
+SELECT *
+FROM SFstation
+JOIN trip
+   ON SFstation.SF_station_id = trip.start_station_id OR SFstation.SF_station_id = trip.end_station_id )
+    
+ SELECT(CASE
+    -- m/d/yyyy
+    WHEN INSTR(start_date, " ")=9 AND INSTR(start_date, ":")=11
+	THEN SUBSTR (start_date,10,1)
+	 -- m/d/yyyy
+    WHEN INSTR(start_date, " ")=9 AND INSTR(start_date, ":")=12
+	THEN SUBSTR (start_date,10,2)
+	-- mm/d/yyyy
+	WHEN INSTR(start_date, " ")=10 AND INSTR(start_date, ":")=12
+	THEN SUBSTR (start_date,11,1)
+    -- mm/d/yyyy
+	WHEN INSTR(start_date, " ")=10 AND INSTR(start_date, ":")=13
+	Then SUBSTR (start_date,11,2)
+	-- mm/dd/yyyy
+	WHEN INSTR(start_date, " ")=11 AND INSTR(start_date, ":")=13
+	THEN SUBSTR (start_date,12,1)
+    -- mm/dd/yyyy
+	WHEN INSTR(start_date, " ")=11 AND INSTR(start_date, ":")=14
+	THEN SUBSTR (start_date,12,2)
+	 -- m/dd/yyyy
+	WHEN INSTR(start_date, " ")=10 AND INSTR(start_date, ":")=12
+	Then SUBSTR (start_date,11,1)
+	-- mm/dd/yyyy
+	WHEN INSTR(start_date, " ")=10 AND INSTR(start_date, ":")=13
+	THEN SUBSTR (start_date,11,2)
+	ElSE start_date
+	End) As start_hour (24-hour clock),
+	COUNT(id) AS 'trip record'
+FROM SF_trip
+GROUP BY start_hour
+ORDER BY CAST(start_hour AS INT) ASC
