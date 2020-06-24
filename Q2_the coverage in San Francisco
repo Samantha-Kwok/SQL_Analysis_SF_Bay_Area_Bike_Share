@@ -1,47 +1,49 @@
 Q2.1 How many stations whose number of docks installed is above the average are there in San Francisco?
 
 Metric
-the number of stations with the number of docks equal or greater than the average in San Francisco
+-the number of stations with the number of docks equal to or greater than the average in San Francisco
 
 SQL
-SELECT count(name) as 'station above the average capacity' 
+SELECT count(name) AS 'station above the average capacity' 
 FROM station
 WHERE city= 'San Francisco' AND  dock_count >= 19 
 
+--------------------------------------------------------------------------------------------------
 Q2.2 How many stations whose number of docks installed is below the average are there in San Francisco?
  
 Metric
-the number of stations with the number of docks below the average in San Francisco 
+-the number of stations with the number of docks below the average in San Francisco 
 
 SQL
-SELECT count(name) as 'station below the average capacity' 
+SELECT count(name) AS 'station below the average capacity' 
 FROM station
 WHERE city= 'San Francisco' AND  dock_count < 19 
 
+---------------------------------------------------------------------------------
 Q2.3 Which station has the biggest bike-share facility in San Francisco?
 
 Metric
-the station with the most amount of docks installed 
+-the station with the most amount of docks installed 
 
 SQL
-SELECT name as 'station',
-       dock_count as 'docks installed'
+SELECT name AS 'station',
+       dock_count AS'dock installed'
 FROM station
-WHERE city= 'San Francisco' 
+WHERE city = 'San Francisco' 
 ORDER BY dock_count DESC
-Limit 10
+LIMIT 15
 
-
+-----------------------------------------------------------------------------
 Q2.4 Which station has the smallest bike-share faciity in San Francisco?
 
 Metric 
-the station with least amount of docks installed
+-the station with least amount of docks installed
 
 SQL
-SELECT name as 'station',
-       dock_count as 'docks installed'
+SELECT name AS 'station',
+       dock_count AS 'docks installed'
 FROM station
 WHERE city= 'San Francisco' 
-ORDER BY dock_count AS
-Limit 10
+ORDER BY dock_count ASC
+LIMIT 15
 
