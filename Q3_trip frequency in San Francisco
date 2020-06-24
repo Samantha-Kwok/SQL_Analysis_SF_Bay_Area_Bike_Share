@@ -4,14 +4,73 @@ SQL
 WITH SF_trip AS (
 SELECT *
 FROM SFstation
-INNER JOIN trip
+  JOIN trip
    ON SFstation.SF_station_id = trip.start_station_id OR SFstation.SF_station_id = trip.end_station_id )
    
-SELECT COUNT(id) AS 'total trip',
+SELECT COUNT(id) AS 'total trip'
 FROM SF_trip
 
--------------------------------------------------------------------------------------------------
-Q3.2 What is the average number of trips per station coming in and out of San Francisco?
+-----------------------------------------------------------------------------------------------------------
+Q3.2 What is the total number of city trips coming in and out of the same station inside San Francisco?
+
+SQL
+WITH SF_trip AS (
+SELECT *
+FROM SFstation
+JOIN trip
+   ON SFstation.SF_station_id = trip.start_station_id OR SFstation.SF_station_id = trip.end_station_id )
+   
+SELECT COUNT(id) AS 'round trip'
+FROM SF_trip
+WHERE start_station_id = end_station_id AND SF_station_id =start_station_id
+
+-------------------------------------------------------------------------------------------------------
+Q3.3 What is the total number of city trips coming in and out of different stations inside San Francisco?
+
+SQL
+WITH SF_trip AS (
+SELECT *
+FROM SFstation
+JOIN trip
+   ON SFstation.SF_station_id = trip.start_station_id OR SFstation.SF_station_id = trip.end_station_id )
+   
+SELECT COUNT(id) AS 'cross-station city trip ', 
+       ROUND(AVG(duration/60)) AS 'average trip duration in minute'
+FROM SF_trip
+WHERE  NOT start_station_id =end_station_id  AND start_station_id in (SELECT SF_station_id from SFstation) AND end_station_id in (SELECT SF_station_id from SFstation)
+
+----------------------------------------------------------------------------------------
+Q3.4 What is the total number of inter-city trips coming in San Francisco?
+
+SQL
+WITH SF_trip AS (
+SELECT *
+FROM SFstation
+JOIN trip
+   ON SFstation.SF_station_id = trip.start_station_id OR SFstation.SF_station_id = trip.end_station_id )
+   
+SELECT COUNT(id) AS 'inbound inter-city trip',
+        ROUND(AVG(duration/60)) AS 'average trip duration in minute'
+FROM SF_trip
+WHERE SF_station_id = end_station_id AND NOT start_station_id in (SELECT SF_station_id from SFstation)
+
+--------------------------------------------------------------------------------------------------
+Q3.5 What is the total number of inter-city trips coming out of San Francisco?
+
+SQL
+WITH SF_trip AS (
+SELECT *
+FROM SFstation
+JOIN trip
+   ON SFstation.SF_station_id = trip.start_station_id OR SFstation.SF_station_id = trip.end_station_id )
+   
+SELECT COUNT(id) AS 'outbound inter-city trip',
+        ROUND(AVG(duration/60)) AS 'average trip duration in minute'
+FROM SF_trip
+WHERE SF_station_id = start_station_id AND NOT end_station_id in (SELECT SF_station_id from SFstation)
+
+--------------------------------------------------------------------------------------------------
+Q3.6 What is the average number of trips per station coming in and out of San Francisco?
 
 SQL
 WITH SF_trip AS (
@@ -26,58 +85,3 @@ FROM SF_trip
 GROUP BY SF_station_name
 ORDER BY ROUND(AVG(id)) DESC
 
------------------------------------------------------------------------------------------------------------
-Q3.3 What is total number of city trips coming in and out of the same station inside San Francisco?
-
-SQL
-WITH SF_trip AS (
-SELECT *
-FROM SFstation
-JOIN trip
-   ON SFstation.SF_station_id = trip.start_station_id OR SFstation.SF_station_id = trip.end_station_id )
-   
-SELECT COUNT(id) AS 'round trip inside San Francisco'
-FROM SF_trip
-WHERE start_station_id = end_station_id AND SF_station_id =start_station_id
-
--------------------------------------------------------------------------------------------------------
-Q3.4 what is the total number of city trips coming in and out of different station inside San Francisco?
-
-SQL
-WITH SF_trip AS (
-SELECT *
-FROM SFstation
-JOIN trip
-   ON SFstation.SF_station_id = trip.start_station_id OR SFstation.SF_station_id = trip.end_station_id )
-   
-SELECT COUNT(id) AS 'cross-station city trip in San Francisco '
-FROM SF_trip
-WHERE  NOT start_station_id =end_station_id  AND start_station_id in (SELECT SF_station_id from SFstation) AND end_station_id in (SELECT SF_station_id from SFstation)
-
-----------------------------------------------------------------------------------------
-Q3.5 What is the total number of inter-city trips coming in San Francisco?
-
-SQL
-WITH SF_trip AS (
-SELECT *
-FROM SFstation
-JOIN trip
-   ON SFstation.SF_station_id = trip.start_station_id OR SFstation.SF_station_id = trip.end_station_id )
-   
-SELECT COUNT(id) AS 'inbound inter-city trip'
-FROM SF_trip
-WHERE SF_station_id = end_station_id AND NOT start_station_id in (SELECT SF_station_id from SFstation)
-
---------------------------------------------------------------------------------------------------
-Q3.6 What is the total number of inter-city trips coming out of San Francisco?
-
-SQL
-WITH SF_trip AS (
-SELECT *
-FROM SFstation
-JOIN trip
-   ON SFstation.SF_station_id = trip.start_station_id OR SFstation.SF_station_id = trip.end_station_id )
-   
-SELECT COUNT(id) AS 'outbound inter-City trip'
-FROM SF_trip
-WHERE SF_station_id = start_station_id AND NOT end_station_id in (SELECT SF_station_id from SFstation)
