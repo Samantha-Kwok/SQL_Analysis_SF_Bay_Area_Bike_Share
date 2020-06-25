@@ -1,7 +1,7 @@
-Which route is the most poular one in San Francisco?
+Q6 Which route is the most poular one in San Francisco?
 
 Metric 
--the route with the highest frequency 
+-the route with the highest trip frequency 
 
 SQL
 WITH SF_trip AS (
@@ -10,10 +10,10 @@ FROM SFstation
 JOIN trip
    ON SFstation.SF_station_id = trip.start_station_id OR SFstation.SF_station_id = trip.end_station_id )
   
-SELECT start_station_name, 'start station',
-       end_station_name As 'end station',
-	     COUNT(id) AS 'trip'
-       duration,
+SELECT start_station_name AS'start station',
+       end_station_name AS 'end station',
+	     COUNT(id) AS 'trip',
+       duration
 FROM SF_trip 
 GROUP BY start_station_name, end_station_name
 ORDER BY  COUNT(id) DESC	
