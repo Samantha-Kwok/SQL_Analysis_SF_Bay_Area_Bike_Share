@@ -69,19 +69,4 @@ SELECT COUNT(id) AS 'outbound inter-city trip',
 FROM SF_trip
 WHERE SF_station_id = start_station_id AND NOT end_station_id in (SELECT SF_station_id from SFstation)
 
---------------------------------------------------------------------------------------------------
-Q3.6 What is the average number of trips per station coming in and out of San Francisco?
-
-SQL
-WITH SF_trip AS (
-SELECT *
-FROM SFstation
-INNER JOIN trip
-   ON SFstation.SF_station_id = trip.start_station_id OR SFstation.SF_station_id = trip.end_station_id )
-   
-SELECT SF_station_name AS 'station',
-       ROUND(AVG(id)) AS 'the average number of trip'
-FROM SF_trip
-GROUP BY SF_station_name
-ORDER BY ROUND(AVG(id)) DESC
 
