@@ -43,7 +43,7 @@ SELECT (CASE
            THEN '6 - Saturday'
            ELSE '7 - Sunday'
            END )AS weekday,
-		   COUNT(id)as 'record'
+	   COUNT(id) AS trip'
 FROM SF_trip
 GROUP BY weekday
 
