@@ -36,7 +36,7 @@ JOIN trip
 	WHEN INSTR(start_date, " ")=10 AND INSTR(start_date, ":")=13
 	THEN SUBSTR (start_date,11,2)
 	ElSE start_date
-	End) As start_hour,
+	End) AS start_hour,
 	COUNT(id) AS 'trip '
 FROM SF_trip
 GROUP BY start_hour
