@@ -21,4 +21,4 @@ SELECT start_station_name AS 'start station',
 FROM SF_trip 
 GROUP BY start_station_name, end_station_name
 ORDER BY ROUND(duration/60) DESC 
-LIMIT 100  
+LIMIT 10
