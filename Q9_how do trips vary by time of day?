@@ -1,4 +1,4 @@
-Q9 How bike trips vary by time of day?
+Q9 How do bike trips vary by time of day?
 
 Metric
 -the number of trips by hour
@@ -36,8 +36,8 @@ JOIN trip
 	WHEN INSTR(start_date, " ")=10 AND INSTR(start_date, ":")=13
 	THEN SUBSTR (start_date,11,2)
 	ElSE start_date
-	End) As start_hour (24-hour clock),
-	COUNT(id) AS 'trip record'
+	End) As start_hour,
+	COUNT(id) AS 'trip '
 FROM SF_trip
 GROUP BY start_hour
-ORDER BY CAST(start_hour AS INT) ASC
+ORDER BY CAST(start-hour AS INT) ASC
