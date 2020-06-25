@@ -1,7 +1,7 @@
 Q5 Which station is the quietest in San Francisco?
 
 Metric
--the satation with least amout of trip in San Francisco
+-the satation with the least amout of trip in San Francisco
 
 SQL
 WITH SF_trip AS (
@@ -13,7 +13,7 @@ JOIN trip
 SELECT SF_station_name AS 'station',
        COUNT(id) AS 'trip '
 FROM SF_trip
-WHERE  start_station_name in (SELECT SF_station_name FROM SFstation)
+WHERE  start_station_name IN (SELECT SF_station_name FROM SFstation)
 GROUP BY SF_station_name
 ORDER BY COUNT(id) ASC
 LIMIT 10
