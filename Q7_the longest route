@@ -12,12 +12,12 @@ JOIN trip
 
 SELECT start_station_name AS 'start station',
        start_station_id AS 'start station id',
-	   start_dateAS 'start date',
+       start_date AS 'start date',
        end_station_name AS 'end station',   
-	   end_station_id AS 'end station id',  
-	   ennd_date AS 'end date',
-	   id AS 'trip id',
-	   ROUND(duration/60/60) AS 'duration of route in hour'	 
+       end_station_id AS 'end station id',  
+       end_date AS 'end date',
+       id AS 'trip id',
+       ROUND(duration/60/60) AS 'duration of route in hour'	 
 FROM SF_trip 
 GROUP BY start_station_name, end_station_name
 ORDER BY ROUND(duration/60) DESC 
