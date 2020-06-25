@@ -12,8 +12,7 @@ JOIN trip
   
 SELECT start_station_name AS'start station',
        end_station_name AS 'end station',
-	     COUNT(id) AS 'trip',
-       duration
+       COUNT(id) AS 'trip'     
 FROM SF_trip 
 GROUP BY start_station_name, end_station_name
 ORDER BY  COUNT(id) DESC	
