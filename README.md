@@ -13,7 +13,21 @@ This databases is a trasnferomed version of Bay Area Bike Share Open data and is
 ## Repositary Outline
 (I want to make it clear to viewer how they can know what question I am going to ask and what sql syntax i used to look for insights)
 
-<img src="static/Q1_Visual_Coverage.PNG">
+<img src="static/Q1_Visual.PNG">
+<img src="static/Q2.1-Q2.2_Visual.PNG">
+<img src="static/Q2.3_Visual.PNG">
+<img src="static/Q2.4_Visua.PNG">
+<img src="static/Q3_Visual.PNG">
+<img src="static/Q4_Visual.PNG">
+<img src="static/Q5_Visual.PNG">
+<img src="static/Q6_Visual.PNG">
+<img src="static/Q7_Visual.PNG">
+<img src="static/Q8_Visual.PNG">
+<img src="static/Q9.1_Visual.PNG">
+<img src="static/Q9.2_Visual.PNG">
+<img src="static/Q9.3_Visual.PNG">
+<img src="static/Q10_Visual.PNG">
+
 
 ## Reflection
 
