@@ -14,6 +14,8 @@ This databases is a trasnferomed version of Bay Area Bike Share Open data and is
 (I want to make it clear to viewer how they can know what question I am going to ask and what sql syntax i used to look for insights)
 
 <img src="static/Q1_Visual.PNG">
+---------------------------------------------------
+
 <img src="static/Q2.1-Q2.2_Visual.PNG">
 <img src="static/Q2.3_Visual.PNG">
 <img src="static/Q2.4_Visual.PNG">
