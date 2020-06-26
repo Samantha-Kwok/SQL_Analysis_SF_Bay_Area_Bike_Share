@@ -16,7 +16,7 @@ This databases is a trasnferomed version of Bay Area Bike Share Open data and is
 <img src="static/Q1_Visual.PNG">
 <img src="static/Q2.1-Q2.2_Visual.PNG">
 <img src="static/Q2.3_Visual.PNG">
-<img src="static/Q2.4_Visua.PNG">
+<img src="static/Q2.4_Visual.PNG">
 <img src="static/Q3_Visual.PNG">
 <img src="static/Q4_Visual.PNG">
 <img src="static/Q5_Visual.PNG">
