@@ -21,8 +21,7 @@ SELECT (CASE
 FROM trip
 JOIN SFstation
    ON SFstation.SF_station_id = trip.start_station_id OR SFstation.SF_station_id = trip.end_station_id )
-
-     
+    
 SELECT  ROUND(((mean_temperature_f-32)/1.8)) AS 'mean temperature in celsius',
         ROUND(AVG(id)) AS 'average number of trips'      
 FROM (SELECT *
@@ -58,8 +57,6 @@ FROM trip
 JOIN SFstation
    ON SFstation.SF_station_id = trip.start_station_id OR SFstation.SF_station_id = trip.end_station_id )
 
-   
- 
 SELECT  mean_wind_speed_mph AS 'mean wind speed in mph',
         ROUND(AVG(id)) AS 'average number of trips'      
 FROM (SELECT *
@@ -89,20 +86,20 @@ SELECT (CASE
 	   THEN substr(start_date,1,10)
 	   ELSE start_date
 	   END)AS trip_date,
-	   id,
-	   start_station_name,
-	   duration,
-	   end_station_name
+	   id
 FROM trip
 JOIN SFstation
    ON SFstation.SF_station_id = trip.start_station_id OR SFstation.SF_station_id = trip.end_station_id )
 
-SELECT avg(id),
-       mean_humidity
-FROM SF_trip
-JOIN weather
- ON SF_trip.trip_date=weather.date
- GROUP BY  mean_humidity
+SELECT  mean_humidity AS 'mean humidity',
+        ROUND(AVG(id)) AS 'average number of trips'      
+FROM (SELECT *
+      FROM weather
+	  WHERE mean_humidity IS NOT '') AS weather
+JOIN SF_trip
+ ON SF_trip.trip_date= weather.date 
+ GROUP BY mean_humidity
  
+
 
  
