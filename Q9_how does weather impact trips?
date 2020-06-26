@@ -1,4 +1,4 @@
-Q.11.1 How does temperature impact trips?
+Q9.1 How does temperature impact trips?
 
 SQL
 WITH SF_trip AS(
@@ -33,7 +33,7 @@ JOIN SF_trip
  
  
 -------------------------------------------------------------------------------------------------------------------
-Q.11.2 How does wind speed impact trips?
+Q9.2 How does wind speed impact trips?
 
 SQL
 WITH SF_trip AS(
@@ -67,7 +67,7 @@ JOIN SF_trip
  GROUP BY mean_wind_speed_mph
 
 -----------------------------------------------------------------------------------------------------------
-Q.11.3 How does humidity impact trip?
+Q9.3 How does humidity impact trip?
 
 SQL
 WITH SF_trip AS(
