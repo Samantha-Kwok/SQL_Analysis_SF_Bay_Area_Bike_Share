@@ -4,7 +4,7 @@ Metric
 -the number of stations with the number of docks equal to or greater than the average in San Francisco
 
 SQL
-SELECT count(name) AS 'station above the average capacity' 
+SELECT count(name) AS 'station equal to /above the average capacity' 
 FROM station
 WHERE city= 'San Francisco' AND  dock_count >= 19 
 
