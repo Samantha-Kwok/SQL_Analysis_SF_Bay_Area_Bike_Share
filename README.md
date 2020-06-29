@@ -12,35 +12,30 @@ This databases is a trasnferomed version of Bay Area Bike Share Open data and is
 
 ## Project Outline
 
-I tired to answer 10 questions over the course of this exploration. Each question and its relevant SQL commomnds are listed in one file. Static folder is where you can access the visuals of results from running SQL commands. 
+I answered10 questions over the course of this exploration. Each question and its relevant SQL commomnds are listed in one file. Static folder is where you can access the visuals of results from running SQL commands. 
 
 ## Project Highlight
 
-## One of the most interesting analysises is.....
+## One of the most complex analysises is ....
+In Q3 I tr
 
-## One of the most complex 
 
-## that is how I grasped the importance of Data Quality 
 
-<img src="static/Q1_Visual.PNG">
----------------------------------------------------
-
-<img src="static/Q2.1-Q2.2_Visual.PNG">
-<img src="static/Q2.3_Visual.PNG">
-<img src="static/Q2.4_Visual.PNG">
 <img src="static/Q3_Visual.PNG">
-<img src="static/Q4_Visual.PNG">
-<img src="static/Q5_Visual.PNG">
-<img src="static/Q6_Visual.PNG">
+
+
+
+
+
+## One complex 
+<img src="static/Q3_Visual.PNG">
+## that is how I grasped the importance of Data Quality 
 <img src="static/Q7_Visual.PNG">
 <img src="static/Q8_Visual.PNG">
-<img src="static/Q9.1_Visual.PNG">
-<img src="static/Q9.2_Visual.PNG">
-<img src="static/Q9.3_Visual.PNG">
+
+## One of the most interesting analysises is.....
+
 <img src="static/Q10_Visual.PNG">
-
-
-## Reflection
 
 
 ## Database Schema-Appendix 1
