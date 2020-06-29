@@ -12,12 +12,16 @@ This databases is a trasnferomed version of Bay Area Bike Share Open data and is
 
 ## Project Outline
 
-I answered10 questions over the course of this exploration. Each question and its relevant SQL commomnds are listed in one file. Static folder is where you can access the visuals of results from running SQL commands. 
+I answered 10 questions over the course of this exploration. Each question and its relevant SQL commomnds are listed in one file. Static folder is where you can access the visuals of results from running SQL commands. 
+
+
 
 ## Project Highlight
 
 ## One of the most complex analysises is ....
-In Q3 I tr
+Exploring different types of trips coming in or out of San Francisco is a bit tricky. First of all, I need to select all trips that either have start station or end station in San Francisco. To do so, I created an additional table that contains all bike-share stations in San Franciso and inner join it with the able trip. After that, you then need to create conditions to differentiate the following 4 types of trips:
+
+-
 
 
 
