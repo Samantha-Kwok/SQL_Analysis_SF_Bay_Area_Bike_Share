@@ -18,8 +18,8 @@ I answered 10 questions over the course of this exploration. Each question and i
 
 ## Project Highlight
 
-## One of the most complex analysises is ....
-Exploring different types of trips coming in or out of San Francisco is a bit tricky. First of all, I need to select all trips that either have start station or end station in San Francisco. To do so, I created an additional table that contains all bike-share stations in San Franciso and inner join it with the able trip.
+## 1.One of the most complex analysises is exploring different types of trips coming in or out of San Francisco.
+First of all, I need to select all trips that either have start station or end station in San Francisco. To do so, I created an additional table that contains all bike-share stations in San Franciso and inner join it with the able trip.
  
 <img src="static/Q3_SQL.1.PNG" style="width:500px; height:600px;">
 
@@ -46,12 +46,10 @@ That is how I came to create this table below:
 <img src="static/Q3_Visual.PNG" style="width:500px;height:600px;">
 
 
+## 2.Extracting hour value for Q7 taught me the importance of data quality 
+As I wanted to evaluate how trip frequency vary
 
-
-
-## One complex 
-<img src="static/Q3_Visual.PNG">
-## that is how I grasped the importance of Data Quality 
+that is how I grasped the importance of Data Quality 
 <img src="static/Q7_Visual.PNG">
 <img src="static/Q8_Visual.PNG">
 
