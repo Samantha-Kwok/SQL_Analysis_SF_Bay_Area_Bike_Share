@@ -54,9 +54,11 @@ As I wanted to evaluate how trip frequency vary by the time of day, I needed to 
 <img src="static/Q7_SQL.PNG">
 
 
-## One of more interesting analysis is exploring which customer types take more trips or take longer trips
+## 3.One of more interesting analysis is exploring which customer types take more trips or take longer trips
 
 <img src="static/Q10_Visual.1.PNG">
+
+There are two type of riders classified in the TRIP table : customes or subscribers. In this context, customer here means casual rider or pay-as-you-go rider. At first, I assumed that pay-as-you-go riders would have taken more short trips for the purpose of sighseeing whereas subscribers would benefit from the subscription an take more long trips. After the running SQL commands, it turned out that about about 96% of bike trips are 10-minute bike trips done by subscribed riders. This could lead us to assume that most of riders are local residents and they mainly rent a bike to commute to work. To validate this, we need more infomration about riders. 
 
 ## Database Schema-Appendix 1
 #### Table 1-Station
