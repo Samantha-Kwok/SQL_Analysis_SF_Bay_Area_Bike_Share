@@ -10,13 +10,17 @@ This project is to demonstrate proficiency in manupuating, aggregating and query
 ## Database Schema
 This databases is a trasnferomed version of Bay Area Bike Share Open data and is available to download from [Kaggle-SF Bay Areas Bike Share](https://www.kaggle.com/benhamner/sf-bay-area-bike-share). There are 4 tables (i.e.station, status, trip, weather) inside the database and I added one table (i.e. SFstation) for the purpose of this project. For more infomration about each table structure, please scroll down and refer to Database Scheme-Appendix 1.
 
-## Project Review
+## Project Outline
 
 I tired to answer 10 questions over the course of this exploration. Each question and its relevant SQL commomnds are listed in one file. Static folder is where you can access the visuals of results from running SQL commands. 
 
+## Project Highlight
 
+## One of the most interesting analysises is.....
 
-(I want to make it clear to viewer how they can know what question I am going to ask and what sql syntax i used to look for insights)
+## One of the most complex 
+
+## that is how I grasped the importance of Data Quality 
 
 <img src="static/Q1_Visual.PNG">
 ---------------------------------------------------
