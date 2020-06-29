@@ -19,11 +19,21 @@ I answered 10 questions over the course of this exploration. Each question and i
 ## Project Highlight
 
 ## One of the most complex analysises is ....
-Exploring different types of trips coming in or out of San Francisco is a bit tricky. First of all, I need to select all trips that either have start station or end station in San Francisco. To do so, I created an additional table that contains all bike-share stations in San Franciso and inner join it with the able trip. After that, you then need to create conditions to differentiate the following 4 types of trips:
+Exploring different types of trips coming in or out of San Francisco is a bit tricky. First of all, I need to select all trips that either have start station or end station in San Francisco. To do so, I created an additional table that contains all bike-share stations in San Franciso and inner join it with the able trip.
+ 
+WITH SF_trip AS (
+SELECT *
+FROM SFstation
+  JOIN trip
+   ON SFstation.SF_station_id = trip.start_station_id OR SFstation.SF_station_id = trip.end_station_id )
 
+
+After that, I then create conditions to differentiate the following 4 types of trips:
+
+Round Trip Inside San Francisco--
 -
 
-
+ 
 
 <img src="static/Q3_Visual.PNG">
 
