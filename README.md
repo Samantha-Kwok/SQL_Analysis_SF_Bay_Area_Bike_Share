@@ -55,7 +55,7 @@ After that, I then create conditions to differentiate the following 4 types of t
 
 As I wanted to evaluate how trip frequency vary by the time of day, I needed to extract hour values. However, the datatype of the coloumn-'start date ('dd/mm/yyyy hh:mm') is not datetime but text. In this case, I could not use DATEPART function. Instead, I have to locate the position of ' ' and ':' using INSTR fucntion. After that, I used SUBSTR function to extract the sub-string that contains the hour value from the whole string. 
 
-<img src="static/Q7.Visual.PNG">
+<img src="static/Q7_SQL.PNG">
 
 
 
