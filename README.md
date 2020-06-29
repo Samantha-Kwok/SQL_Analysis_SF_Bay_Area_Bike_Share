@@ -56,8 +56,8 @@ As I wanted to evaluate how trip frequency vary by the time of day, I needed to 
 
 ## One of more interesting analysis is exploring which customer types take more trips or take longer trips
 
-<img src="static/Q10_Visual.PNG">
-;l
+<img src="static/Q10_Visual.1.PNG">
+
 ## Database Schema-Appendix 1
 #### Table 1-Station
 | Data Name | Data Type | Note| 
