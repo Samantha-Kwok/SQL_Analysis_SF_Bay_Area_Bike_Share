@@ -19,39 +19,45 @@ I answered 10 questions over the course of this exploration. Each question and i
 ## Project Highlight
 
 ## 1.One of the most complex analysises is exploring different types of trips coming in or out of San Francisco.
+
+<img src="static/Q3_Visual.PNG" style="width:500px;height:600px;">
+
 First of all, I need to select all trips that either have start station or end station in San Francisco. To do so, I created an additional table that contains all bike-share stations in San Franciso and inner join it with the able trip.
- 
+
 <img src="static/Q3_SQL.1.PNG" style="width:500px; height:600px;">
 
 After that, I then create conditions to differentiate the following 4 types of trips:
 
 1.Round Trip Inside San Francisco
 -city trips coming in and out of the same station inside San Francisco
+
 <img src="static/Q3_SQL.2.PNG" style="width:500px; height:600px;">
 
 2.Cross-Station Cty Trip
 -city trips coming in and out of different stations inside San Francisco 
+
 <img src="static/Q3_SQL.3.PNG" style="width:500px; height:600px;">
 
 3.Inbound Inter-City Trip
 -inter-city trips coming in San Francisco 
+
 <img src="static/Q3_SQL.4.PNG" style="width:500px; height:600px;">
 
 4.Outbound Inter-City Trip
 -inter-city trips coming out of San Francisco
+
 <img src="static/Q3_SQL.5.PNG" style="width:500px;height:600px;">
-
-That is how I came to create this table below:
-
-<img src="static/Q3_Visual.PNG" style="width:500px;height:600px;">
 
 
 ## 2.Extracting hour value for Q7 taught me the importance of data quality 
-As I wanted to evaluate how trip frequency vary
 
-that is how I grasped the importance of Data Quality 
 <img src="static/Q7_Visual.PNG">
-<img src="static/Q8_Visual.PNG">
+
+As I wanted to evaluate how trip frequency vary by the time of day, I needed to extract hour values. However, the datatype of the coloumn-'start date ('dd/mm/yyyy hh:mm') is not datetime but text. In this case, I could not use DATEPART function. Instead, I have to locate the position of ' ' and ':' using INSTR fucntion. After that, I used SUBSTR function to extract the sub-string that contains the hour value from the whole string. 
+
+<img src="static/Q7.Visual.PNG">
+
+
 
 ## One of the most interesting analysises is.....
 
