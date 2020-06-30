@@ -20,29 +20,29 @@ I answered 10 questions over the course of this exploration. Each question and i
 
 ## 1.One of more complex analysis is exploring different types of trips coming in or out of San Francisco.
 
-<img src="static/Q3_Visual.PNG" style="width:500px;height:600px;">
+<img src="static/Q3_Visual.PNG">
 
 First of all, I need to select all trips that either have start station or end station in San Francisco. To do so, I created an additional table that contains all bike-share stations in San Franciso and inner join it with the able trip.
 
-<img src="static/Q3_SQL.1.PNG" style="width:500px; height:600px;">
+<img src="static/Q3_SQL.1.PNG">
 
 After that, I then create conditions to differentiate the following 4 types of trips:
 
 1.Round Trip Inside San Francisco:city trips coming in and out of the same station inside San Francisco
 
-<img src="static/Q3_SQL.2.PNG" style="width:500px; height:600px;">
+<img src="static/Q3_SQL.2.PNG">
 
 2.Cross-Station Cty Trip: city trips coming in and out of different stations inside San Francisco 
 
-<img src="static/Q3_SQL.3.PNG" style="width:500px; height:600px;">
+<img src="static/Q3_SQL.3.PNG" >
 
 3.Inbound Inter-City Trip:inter-city trips coming in San Francisco 
 
-<img src="static/Q3_SQL.4.PNG" style="width:500px; height:600px;">
+<img src="static/Q3_SQL.4.PNG" >
 
 4.Outbound Inter-City Trip:inter-city trips coming out of San Francisco
 
-<img src="static/Q3_SQL.5.PNG" style="width:500px;height:600px;">
+<img src="static/Q3_SQL.5.PNG" >
 
 
 ## 2.Extracting hour value for Q7 taught me the importance of data quality 
