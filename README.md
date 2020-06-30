@@ -34,7 +34,7 @@ After that, I then create conditions to differentiate the following 4 types of t
 
 2.Cross-Station Cty Trip: city trips coming in and out of different stations inside San Francisco 
 
-<img src="static/Q3_SQL.3.PNG" >
+<img src="static/Q3_SQL.3.1.PNG" >
 
 3.Inbound Inter-City Trip:inter-city trips coming in San Francisco 
 
