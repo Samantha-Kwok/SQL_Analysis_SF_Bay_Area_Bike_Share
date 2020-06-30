@@ -2,7 +2,7 @@
 
 ## Overview
 
-I am here to perform an exploratoray analysis on SF BAy Area bike Share Database using SQL (via DB BRowser For SQLite). The Bay Area Bike Share Scheme enables quick and affordable bike trips around the San Francisco Bay area. 
+I am here to perform an exploratory analysis on SF Bay Area bike Share Database using SQL (via DB BRowser For SQLite). The Bay Area Bike Share Scheme enables quick and affordable bike trips around the San Francisco Bay area. 
 
 ## Goal
 This project is to demonstrate proficiency in manipulating, aggregating and querying data from database files using SQL and the abilities to analyses these values in context.
