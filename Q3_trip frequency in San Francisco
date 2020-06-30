@@ -37,7 +37,9 @@ JOIN trip
 SELECT COUNT(id) AS 'cross-station city trip ', 
        ROUND(AVG(duration/60)) AS 'average trip duration in minute'
 FROM SF_trip
-WHERE  NOT start_station_id =end_station_id  AND start_station_id in (SELECT SF_station_id from SFstation) AND end_station_id in (SELECT SF_station_id from SFstation)
+WHERE  NOT start_station_id =end_station_id 
+       AND start_station_id in (SELECT SF_station_id from SFstation) 
+       AND end_station_id in (SELECT SF_station_id from SFstation)
 
 ----------------------------------------------------------------------------------------
 Q3.4 What is the total number of inter-city trips coming in San Francisco and the average trip duration?
