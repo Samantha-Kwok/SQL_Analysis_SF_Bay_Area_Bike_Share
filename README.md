@@ -5,30 +5,30 @@
 I am here to perform an exploratory analysis on SF Bay Area bike Share Database using SQL (via DB BRowser For SQLite). The Bay Area Bike Share Scheme enables quick and affordable bike trips around the San Francisco Bay area. 
 
 ## Goal
-This project is to demonstrate proficiency in manipulating, aggregating and querying data from database files using SQL and the abilities to analyses these values in context.
+This project is to demonstrate proficiency in manipulating, aggregating, and querying data from database files using SQL and the abilities to analyses these values in context.
 
 ## Database Schema
-This databases is a trasnferomed version of Bay Area Bike Share Open data and is available to download from [Kaggle-SF Bay Areas Bike Share](https://www.kaggle.com/benhamner/sf-bay-area-bike-share). There are 4 tables (i.e.station, status, trip, weather) inside the database and I added one table (i.e. SFstation) for the purpose of this project. For more infomration about each table structure, please scroll down and refer to Database Scheme-Appendix 1.
+This database is a transformed version of Bay Area Bike Share Open data and is available to download from [Kaggle-SF Bay Areas Bike Share](https://www.kaggle.com/benhamner/sf-bay-area-bike-share). There are 4 tables (i.e.station, status, trip, weather) inside the database and I added one table (i.e. SFstation) forthis project. For more information about each table structure, please scroll down and refer to Database Scheme-Appendix 1.
 
 ## Project Outline
 
-I answered 10 questions over the course of this exploration. Each question and its relevant SQL commomnds are listed in one file. Static folder is where you can access the visuals of results from running SQL commands. 
+I answered 10 questions throughout this exploration. Each question and its relevant SQL commands are listed in one file. The static folder is where you can access the visuals of results from running SQL commands. 
 
 
 
 ## Project Highlight
 
-## 1.One of more complex analysis is exploring different types of trips coming in or out of San Francisco.
+## 1.One of the more complex analysis is exploring different types of trips coming in or out of San Francisco.
 
 <img src="static/Q3_Visual.PNG">
 
-First of all, I need to select all trips that either have start station or end station in San Francisco. To do so, I created an additional table that contains all bike-share stations in San Franciso and inner join it with the able trip.
+First of all, I need to select all trips that either has a start station or end station in San Francisco. To do so, I created an additional table that contains all bike-share stations in San Franciso and inner join it with the able trip.
 
 <img src="static/Q3_SQL.1.PNG">
 
 After that, I then create conditions to differentiate the following 4 types of trips:
 
-1.Round Trip Inside San Francisco:city trips coming in and out of the same station inside San Francisco
+1.Round Trip Inside San Francisco: city trips coming in and out of the same station inside San Francisco
 
 <img src="static/Q3_SQL.2.PNG">
 
@@ -49,7 +49,7 @@ After that, I then create conditions to differentiate the following 4 types of t
 
 <img src="static/Q7_Visual.PNG">
 
-As I wanted to evaluate how trip frequency vary by the time of day, I needed to extract hour values. However, the datatype of the coloumn-'start date ('dd/mm/yyyy hh:mm') is not datetime but text. In this case, I could not use DATEPART function. Instead, I have to locate the position of ' ' and ':' using INSTR fucntion. After that, I used SUBSTR function to extract the sub-string that contains the hour value from the whole string. 
+As I wanted to evaluate how the number of trips vares by the time of day, I needed to extract hour values. However, the datatype of the column called'start date('dd/mm/yyyy hh: mm') is not DateTime but Text. In this case, I could not use the DATEPART function. Instead, I have to locate the position of ' ' and ':' using the INSTR function. After that, I used the SUBSTR function to extract the substring that contains the hour value from the whole string. 
 
 <img src="static/Q7_SQL.PNG">
 
@@ -60,7 +60,7 @@ As I wanted to evaluate how trip frequency vary by the time of day, I needed to 
 
 <img src="static/Q10_SQL.PNG">
 
-There are two type of riders classified in the TRIP table : customes or subscribers. In this context, customer here means casual rider or pay-as-you-go rider. At first, I assumed that pay-as-you-go riders would have taken more short trips for the purpose of sighseeing whereas subscribers would benefit from the subscription an take more long trips. After the running SQL commands, it turned out that about about 96% of bike trips are 10-minute bike trips done by subscribed riders. This could lead us to assume that most of riders are local residents and they mainly rent a bike to commute to work. To validate this, we need more infomration about riders. 
+There are two types of riders classified in the TRIP table: customers or subscribers. In this context, the customer here means casual rider or pay-as-you-go rider. At first, I assumed that pay-as-you-go riders would have taken more short trips for sightseeing whereas subscribers would benefit from the subscription and take more long trips. After the running SQL commands, it turned out thatabout 96% of bike trips are 10-minute bike trips done by subscribed riders. This could lead us to assume that most of the riders are residents and they mainly rent a bike to commute to work. To validate this, we need more information about riders. 
 
 ## Database Schema-Appendix 1
 #### Table 1-Station
